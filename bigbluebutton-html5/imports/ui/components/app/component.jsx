@@ -200,7 +200,8 @@ class App extends Component {
 
   shouldAriaHide() {
     const { openPanel, isPhone } = this.props;
-    return openPanel !== '' && (isPhone || isLayeredView.matches);
+    //return openPanel !== '' && (isPhone || isLayeredView.matches);
+     return true;
   }
 
   renderPanel() {
