@@ -25,6 +25,8 @@
 .videoList {
   display: grid;
   border-radius: 5px;
+grid-template-columns: repeat(1, 1fr) !important;
+
 
   grid-auto-flow: dense;
   grid-gap: 5px;
@@ -38,7 +40,7 @@
 }
 
 .videoListItem {
-  display: flex;
+  display: contents;
   overflow: hidden;
   width: 100%;
   max-height: 100%;
@@ -54,6 +56,8 @@
   display: flex;
   min-width: 100%;
   border-radius: 5px;
+  border: 10PX SOLID #57bde5;
+    BACKGROUND: #000;
 
   &::after {
     content: "";

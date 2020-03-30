@@ -10,7 +10,8 @@ import VideoProviderContainer from '/imports/ui/components/video-provider/contai
 import { styles } from '../styles.scss';
 import Storage from '../../../services/storage/session';
 
-const { webcamsDefaultPlacement } = Meteor.settings.public.layout;
+//const { webcamsDefaultPlacement } = Meteor.settings.public.layout;
+const { webcamsDefaultPlacement } = 'floating';
 const BROWSER_ISMOBILE = browser().mobile;
 
 const propTypes = {
@@ -321,14 +322,7 @@ class WebcamDraggable extends Component {
 
     return (
       <Fragment>
-        <div
-          className={dropZoneTopClassName}
-          style={{ height: !singleWebcam ? '50%' : '20%' }}
-        >
-          <div
-            className={dropZoneBgTopClassName}
-          />
-        </div>
+        
 
         <Draggable
           handle="video"
@@ -392,14 +386,7 @@ class WebcamDraggable extends Component {
           </Resizable>
         </Draggable>
 
-        <div
-          className={dropZoneBottomClassName}
-          style={{ height: !singleWebcam ? '50%' : '20%' }}
-        >
-          <div
-            className={dropZoneBgBottomClassName}
-          />
-        </div>
+      
       </Fragment>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 import { throttle } from 'lodash';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
@@ -200,8 +201,8 @@ class App extends Component {
 
   shouldAriaHide() {
     const { openPanel, isPhone } = this.props;
-    //return openPanel !== '' && (isPhone || isLayeredView.matches);
-     return true;
+    return openPanel !== '' && (isPhone || isLayeredView.matches);
+    // return true;
   }
 
   renderPanel() {

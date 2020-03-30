@@ -83,18 +83,9 @@ export default class Media extends Component {
       <div
         id="container"
         className={cx(styles.container)}
-        ref={this.refContainer}
-      >
-        <div
-          className={!swapLayout ? contentClassName : overlayClassName}
-          style={{
-            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '80%',
-            minHeight: '20%',
-          }}
-        >
-          {children}
-        </div>
-        <WebcamDraggable
+       
+      > <div id="webcamcontainer"  ref={this.refContainer}>
+           <WebcamDraggable
           refMediaContainer={this.refContainer}
           swapLayout={swapLayout}
           singleWebcam={singleWebcam}
@@ -104,6 +95,22 @@ export default class Media extends Component {
           audioModalIsOpen={audioModalIsOpen}
           usersVideo={usersVideo}
         />
+          </div>
+       
+        <div
+         
+            className={!swapLayout ? contentClassName : overlayClassName}
+        //   className={overlayClassName}
+          style={{
+            maxHeight: usersVideo.length < 1 || (webcamPlacement === 'floating') ? '100%' : '100%',
+            minHeight: '20%',
+               maxWidth: '68'
+          }}
+        >
+          {children}
+        </div>
+          
+       
       </div>
     );
   }

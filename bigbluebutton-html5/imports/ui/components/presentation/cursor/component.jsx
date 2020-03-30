@@ -23,16 +23,16 @@ export default class Cursor extends Component {
 
   static getFillAndLabel(presenter, isMultiUser) {
     const obj = {
-      fill: 'green',
-      displayLabel: false,
+      fill: 'yellow',
+      displayLabel: true,
     };
 
     if (presenter) {
-      obj.fill = 'red';
+      obj.fill = 'blue';
     }
 
     if (isMultiUser) {
-      obj.displayLabel = true;
+      obj.displayLabel = false;
     }
 
     return obj;
@@ -46,7 +46,7 @@ export default class Cursor extends Component {
     return {
       // Adjust the radius of the cursor according to zoom
       // and divide it by the physicalWidth ratio, so that svg scaling wasn't applied to the cursor
-      finalRadius: props.radius * scaleFactor,
+      finalRadius: props.radius * scaleFactor *4,
       // scaling the properties for cursorLabel and the border (rect) around it
       cursorLabelText: {
         textDY: props.cursorLabelText.textDY * scaleFactor,
@@ -195,6 +195,7 @@ export default class Cursor extends Component {
           fill={fill}
           fillOpacity="0.6"
         />
+        
         {this.displayLabel
           ? (
             <g>

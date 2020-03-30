@@ -74,8 +74,8 @@ class WhiteboardToolbar extends Component {
     const { annotations, multiUser, isPresenter } = this.props;
 
     let annotationSelected = {
-      icon: 'hand',
-      value: 'hand',
+      icon: 'pen_tool',
+      value: 'pencil',
     };
 
     if (multiUser && !isPresenter) {

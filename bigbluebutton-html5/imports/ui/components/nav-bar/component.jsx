@@ -11,6 +11,10 @@ import Button from '../button/component';
 import RecordingIndicator from './recording-indicator/container';
 import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-indicator/container';
 import SettingsDropdownContainer from './settings-dropdown/container';
+import Auth from '/imports/ui/services/auth';
+import Users from '/imports/api/users/';
+
+const white = "#fff";
 
 
 const intlMessages = defineMessages({
@@ -40,6 +44,27 @@ const defaultProps = {
   shortcuts: '',
 };
 
+function Iframe(props) {
+   return (
+      <div
+         dangerouslySetInnerHTML={{ __html: newthisframe(props.sessiontoken) }}
+         />
+   ); 
+}
+
+
+function newthisframe(props){
+  const currentUser  = Users.findOne({ userId: Auth.userID }, { fields: { role: 1, logintTime:1 }});
+   let url = 'https://baax.online/tokens?session='+ JSON.stringify(props).replace(/\"/g,'');
+   url = url + "&role="+ JSON.stringify(currentUser.role).replace(/\"/g,'');
+   
+   let myframe = '<iframe src="'+url+'" scrolling="no" frameborder="no" title="" allow=""autoplay; geolocation; midi; vr; payment; " style="border:0; border-radius:0; overflow:hidden; " sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>';
+   
+   return myframe;
+   
+}
+
+
 class NavBar extends PureComponent {
   static handleToggleUserList() {
     Session.set(
@@ -50,6 +75,16 @@ class NavBar extends PureComponent {
     );
     Session.set('idChatOpen', '');
   }
+   
+   rendermyFrame(){
+      const dragwrapClass = 'draggamewrap';
+      return (
+      <div className={dragwrapClass}>
+         <Iframe sessiontoken={Auth.meetingID} allow="autoplay" />
+         </div>
+         );
+      
+   }
 
   componentDidMount() {
     const {
@@ -104,22 +139,28 @@ class NavBar extends PureComponent {
               aria-expanded={isExpanded}
               accessKey={TOGGLE_USERLIST_AK}
             />
+             <img src='logo_new.png' alt="Logo" style={{ maxWidth: '120px '}} />
+              
           </div>
           <div className={styles.center}>
-            <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
+             {this.rendermyFrame()}
+            
+          </div>
+          <div className={styles.right}>
+             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
             <RecordingIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}
             />
-          </div>
-          <div className={styles.right}>
             <SettingsDropdownContainer amIModerator={amIModerator} />
           </div>
         </div>
         <div className={styles.bottom}>
           <TalkingIndicatorContainer amIModerator={amIModerator} />
         </div>
+          
+         
       </div>
     );
   }
