@@ -89,6 +89,8 @@ class Tooltip extends Component {
       const instance = e._tippy;
 
       if (!instance) return false;
+//added by eshan
+       instance.disable();
 
       const animation = animations ? DEFAULT_ANIMATION : ANIMATION_NONE;
 
