@@ -77,7 +77,8 @@ class Tooltip extends Component {
       aria: null,
       animation: animations ? DEFAULT_ANIMATION : ANIMATION_NONE,
     };
-    this.tooltip = Tippy(`#${this.tippySelectorId}`, options);
+     //by eshan
+   // this.tooltip = Tippy(`#${this.tippySelectorId}`, options);
   }
 
   componentDidUpdate() {

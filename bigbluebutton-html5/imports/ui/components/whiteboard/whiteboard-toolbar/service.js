@@ -33,7 +33,8 @@ const setInitialWhiteboardToolbarValues = (tool, thickness, color, fontSize, tex
   if (!_drawSettings) {
     const drawSettings = {
       whiteboardAnnotationTool: tool,
-      whiteboardAnnotationThickness: thickness,
+   //   whiteboardAnnotationThickness: thickness, //by eshan
+      whiteboardAnnotationThickness: 12,
       whiteboardAnnotationColor: color,
       textFontSize: fontSize,
       textShape,
