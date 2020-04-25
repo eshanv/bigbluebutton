@@ -358,8 +358,9 @@ const BaseContainer = withTracker(() => {
    // Session.set('openPanel', 'userlist');
    Session.set('openPanel', '');
     if (CHAT_ENABLED) {
-      Session.set('openPanel', 'chat');
-      Session.set('idChatOpen', PUBLIC_CHAT_ID);
+    //  Session.set('openPanel', 'chat');
+      //Session.set('idChatOpen', PUBLIC_CHAT_ID);
+       Session.set('openPanel', '');
     }
   } else {
     Session.set('openPanel', '');

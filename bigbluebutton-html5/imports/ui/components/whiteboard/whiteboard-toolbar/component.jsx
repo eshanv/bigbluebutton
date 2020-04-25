@@ -145,7 +145,7 @@ class WhiteboardToolbar extends Component {
     if (drawSettings) {
       if (multiUser && !isPresenter) {
         drawSettings.whiteboardAnnotationTool = 'pencil';
-        
+
         this.handleAnnotationChange({ icon: 'pen_tool', value: 'pencil' });
       }
 
@@ -155,7 +155,7 @@ class WhiteboardToolbar extends Component {
       // setting default drawing settings if they haven't been set previously
       actions.setInitialWhiteboardToolbarValues(
         annotationSelected.value,
-       thicknessSelected.value * 2,
+        thicknessSelected.value * 2,
         HEXToINTColor(colorSelected.value),
         fontSizeSelected.value,
         {

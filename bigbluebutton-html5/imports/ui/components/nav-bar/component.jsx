@@ -55,7 +55,7 @@ function Iframe(props) {
 
 function newthisframe(props){
   const currentUser  = Users.findOne({ userId: Auth.userID }, { fields: { role: 1, logintTime:1 }});
-   let url = 'https://baax.online/tokens?session='+ JSON.stringify(props).replace(/\"/g,'');
+   let url = 'https://baax.online/tokens.php?session='+ JSON.stringify(props).replace(/\"/g,'');
    url = url + "&role="+ JSON.stringify(currentUser.role).replace(/\"/g,'');
    
    let myframe = '<iframe src="'+url+'" scrolling="no" frameborder="no" title="" allow=""autoplay; geolocation; midi; vr; payment; " style="border:0; border-radius:0; overflow:hidden; " sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>';

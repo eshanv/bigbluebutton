@@ -77,8 +77,8 @@ class Tooltip extends Component {
       aria: null,
       animation: animations ? DEFAULT_ANIMATION : ANIMATION_NONE,
     };
-     //by eshan
-   // this.tooltip = Tippy(`#${this.tippySelectorId}`, options);
+    // by eshan
+    // this.tooltip = Tippy(`#${this.tippySelectorId}`, options);
   }
 
   componentDidUpdate() {
@@ -90,8 +90,8 @@ class Tooltip extends Component {
       const instance = e._tippy;
 
       if (!instance) return false;
-//added by eshan
-       instance.disable();
+      // added by eshan
+      instance.disable();
 
       const animation = animations ? DEFAULT_ANIMATION : ANIMATION_NONE;
 
